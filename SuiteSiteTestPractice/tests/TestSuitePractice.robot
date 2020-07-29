@@ -18,4 +18,3 @@ Caso de teste 02: Pesquisar produto não existente
     Clicar no botão Pesquisar
     Conferir mensagem de erro "No results were found for your search "itemNaoExistente""
 
-*** Keywords ***
