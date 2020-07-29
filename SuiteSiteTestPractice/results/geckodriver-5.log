@@ -1,0 +1,12 @@
+1592259229307	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\BRUNOR~1\\AppData\\Local\\Temp\\rust_mozprofileLfy6vt"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1592259235691	Marionette	INFO	Listening on port 57832
+1592259236175	Marionette	WARN	TLS certificate errors will be ignored for this session
+1592259242085	Marionette	INFO	Stopped listening on port 57832
+JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 691: TypeError: this.tablesData[table] is undefined
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+

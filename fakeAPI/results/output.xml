@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.8.3 on win32)" generated="20200704 22:06:59.561" rpa="false">
+<suite id="s1" name="TestCasePostAPIBooks" source="C:\ProjetosCursos\CursoRobot\fakeAPI\TestCasePostAPIBooks.robot">
+<kw name="Conectar API" library="ResourceAPI" type="setup">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>fakeAPI</arg>
+<arg>${URL_API}</arg>
+</arguments>
+<msg timestamp="20200704 22:06:59.795" level="INFO">Creating Session using : alias=fakeAPI, url=http://fakerestapi.azurewebsites.net/api/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20200704 22:06:59.795" endtime="20200704 22:06:59.796"></status>
+</kw>
+<status status="PASS" starttime="20200704 22:06:59.794" endtime="20200704 22:06:59.796"></status>
+</kw>
+<test id="s1-t1" name="Cadastrar um novo livro">
+<kw name="Cadastrar um novo livro" library="ResourceAPI">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>content-type=application/json</arg>
+</arguments>
+<assign>
+<var>${HEADERS}</var>
+</assign>
+<msg timestamp="20200704 22:06:59.798" level="INFO">${HEADERS} = {'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20200704 22:06:59.798" endtime="20200704 22:06:59.798"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>fakeAPI</arg>
+<arg>Books</arg>
+<arg>data={"ID": 2323,"Title": "teste","Description": "teste","PageCount": 200,"Excerpt": "teste","PublishDate": "2020-07-04T23:31:39.305Z"}</arg>
+<arg>headers=${HEADERS}</arg>
+</arguments>
+<assign>
+<var>${RESPOSTA}</var>
+</assign>
+<msg timestamp="20200704 22:07:00.466" level="INFO">POST Request : url=http://fakerestapi.azurewebsites.net/api//Books 
+ path_url=/api//Books 
+ headers={'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'content-type': 'application/json', 'Content-Length': '130'} 
+ body=b'{"ID": 2323,"Title": "teste","Description": "teste","PageCount": 200,"Excerpt": "teste","PublishDate": "2020-07-04T23:31:39.305Z"}' 
+ </msg>
+<msg timestamp="20200704 22:07:00.466" level="INFO">POST Response : url=http://fakerestapi.azurewebsites.net/api//Books 
+ status=200, reason=OK 
+ body={"ID":2323,"Title":"teste","Description":"teste","PageCount":200,"Excerpt":"teste","PublishDate":"2020-07-04T23:31:39.305Z"} 
+ </msg>
+<msg timestamp="20200704 22:07:00.467" level="INFO">${RESPOSTA} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200704 22:06:59.798" endtime="20200704 22:07:00.467"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${RESPOSTA.text}</arg>
+</arguments>
+<msg timestamp="20200704 22:07:00.467" level="INFO">{"ID":2323,"Title":"teste","Description":"teste","PageCount":200,"Excerpt":"teste","PublishDate":"2020-07-04T23:31:39.305Z"}</msg>
+<status status="PASS" starttime="20200704 22:07:00.467" endtime="20200704 22:07:00.467"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${RESPOSTA}</arg>
+</arguments>
+<msg timestamp="20200704 22:07:00.468" level="INFO">${RESPOSTA} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20200704 22:07:00.468" endtime="20200704 22:07:00.469"></status>
+</kw>
+<status status="PASS" starttime="20200704 22:06:59.797" endtime="20200704 22:07:00.469"></status>
+</kw>
+<status status="PASS" starttime="20200704 22:06:59.796" endtime="20200704 22:07:00.470" critical="yes"></status>
+</test>
+<doc>Documentação da API: http://fakerestapi.azurewebsites.net/swagger/ui/index#/Books</doc>
+<status status="PASS" starttime="20200704 22:06:59.564" endtime="20200704 22:07:00.472"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="TestCasePostAPIBooks">TestCasePostAPIBooks</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
